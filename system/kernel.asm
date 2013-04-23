@@ -26,5 +26,5 @@ kernel_write_color_string:
     pop bx
     ret
 
-%include "output.asm"; to be added
-%include "input.asm"; to be added
+%include "output.asm"
+%include "input.asm"
