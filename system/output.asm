@@ -2,7 +2,7 @@ write_string:
     push bx
     push cx
     push dx
-    mov bx,ax; the color's now in bx
+    mov bl,al; the color's now in bx
     call write_string_loop
     pop dx
     pop cx
@@ -20,6 +20,15 @@ write_char:
     je write_newline
     cmp al,33
     jb write_invalid_char
+    mov cx,ScreenAddress
+    mov dx,yPos
+    mul dx,80
+    add dx,xPos
+    add cx,dx
+    mov byte[cx],al
+    inc cx
+    mov byte[cx],bl
+    inc xPox
     ret
 write_newline:
     mov xPos,0
