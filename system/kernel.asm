@@ -6,33 +6,31 @@ ORG [0x00008000]
 
 ;IO Functions
 kernel_write_string:
-    mov ax,0x29; default colors- blue on dark green. Please, don't criticize!
+    mov al,0x29; default colors- blue on dark green. Please, don't criticize!
     call write_string
     ret
 
 kernel_write_color_string:
-    call write_string; this is actually the color output function
+    call write_string
     ret
 
 kernel_input_string:
     call input_string
     ret
 
-;Execute a process (.proc file)
-kernel_execute_process:
-    call exec_process; it will return when a "wait" command is executed
+;Multithreading functions
+kernel_add_proc:
+    call add_proc
     ret
 
-;Multiprocessing functions- auto-executed by the kernel
-kernel_multiproc_watch:
-    ;need some way of making a process queue!
-    call kernel_execute_process
-    ;move to next process in queue
-    jmp kernel_multiproc_watch
+kernel_proc_wait:
+    call proc_wait
+    ret
 
-kernel_add_process:
-    ;add it to queue
+kernel_end_proc:
+    call end_proc
+    ret
 
 %include "output.asm"
 %include "input.asm"
-%include "procexec.asm"; to be added
+%include "mt.asm";to be added
