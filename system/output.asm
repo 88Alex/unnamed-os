@@ -18,7 +18,7 @@ write_char:
     ;the character is in al
     cmp al,10
     je write_newline
-    cmp al,33
+    cmp al,32
     jb write_invalid_char
     mov cx,ScreenAddress
     mov dx,yPos
@@ -41,6 +41,15 @@ write_invalid_char:
     ret
 write_string_done:
     ret
+
+write_string_loc:
+    push cx
+    push dx
+    ;bh is xpos, bl is ypos
+    mov xPos,bh
+    mov yPos,bl
+    jmp write_string_loop
+
 ;=====================================
 ;Variable declarations
 ScreenAddress db 0xb8000
