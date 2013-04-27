@@ -48,7 +48,10 @@ write_string_loc:
     ;bh is xpos, bl is ypos
     mov xPos,bh
     mov yPos,bl
-    jmp write_string_loop
+    call write_string_loop
+    pop dx
+    pop cx
+    ret
 
 ;=====================================
 ;Variable declarations
