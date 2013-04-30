@@ -10,7 +10,8 @@ COPYLEFT Alexander Kitaev
 
 char[] helpMessage1 = "exit- exits program\nhelp- displays help\n";
 char[] helpMessage2 = "version- displays version\ninfo- displays system information\n";
-char[] helpMessage3 = "Anything else- loads a program with that name.";
+char[] helpMessage3 = "programs- displays a list of all the programs on the system.\n";
+char[] helpMessage4 = "Anything else- loads a program with that name.";
 
 char[] infoMessage1 = "Lithium-OS v0.1.0\n";
 char[] infoMessage2 = "An operating system developed by Alexander Kitaev.\n";
@@ -29,6 +30,7 @@ int main()
             print(helpMessage1);
             print(helpMessage2);
             print(helpMessage3);
+            print(helpMessage4);
         }
         else if(compareTwoStrings(userInput, "info"))
         {
