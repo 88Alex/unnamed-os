@@ -3,8 +3,8 @@ write_string:
     push cx
     push dx
     mov bl,al; the color's now in bx
-    mov ch,xPos
-    mov cl,yPos
+    mov ch,[0xD000]
+    mov cl,[0xD001]
     call write_string_loop
     pop dx
     pop cx
@@ -22,18 +22,11 @@ write_char:
     je write_newline
     cmp al,32
     jb write_invalid_char
-    mov dx,cl
-    mul dx,80
-    add dx,ch
-    add dx,ScreenAddress
-    mov byte[dx],al
-    inc dx
-    mov byte[dx],bl
-    inc xPox
+    ;TODO- write screen displaying code
     ret
 write_newline:
-    mov xPos,0
-    inc yPos
+    mov ch,0
+    add cl,15;15 pixels high characters
     ;TODO- write code handling screen overflow
     jmp write_string_loop
 write_invalid_char:
@@ -57,6 +50,4 @@ write_string_loc:
 ;=====================================
 ;Variable declarations
 ScreenAddress db 0xb8000
-xPos db 0
-yPos db 0
 invalidCharMsg db "Error- character cannot be displayed.",0
