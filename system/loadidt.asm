@@ -2,20 +2,20 @@
 ;Developed by Alexander Kitaev
 ;COPYLEFT Alexander Kitaev, 2013
 
-[ORG 0x0000B000]
-
 push eax; Current memory address
 push ebx; Interrupt number
-push ecx; Used as temp var for calculations
+push ecx; Current GDT entry
 push edx; Used to hold memory address of interrupt
 
 mov ebx,0
-mov eax,0x0000B400; we're not expecting this program to go over 0x400 bytes- but this might change
+mov eax,0x0000B000
 mainloop:
+    push ecx
     mov ecx,edx
     shr ecx,16
     mov word[eax],cx; get the lower part
     add eax,16
+    pop ecx
     ;TODO- LOAD SELECTOR
     add eax,16
     mov ch,0; it's meant to be ch- 8 bit values!
@@ -29,6 +29,8 @@ mainloop:
     add edx,0x400; size of actual interrupt code
     cmp ebx,IntTotal
     jne mainloop
+
+lidt 0x0000B000
 
 pop edx
 pop ecx
