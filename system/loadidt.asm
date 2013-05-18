@@ -26,7 +26,7 @@ mainloop:
     mov ecx,edx
     mov word[eax],cx; get the upper part
     add eax,16
-    add edx,0x400; size of actual interrupt code
+    add edx,0x100; size of actual interrupt code
     cmp ebx,IntTotal
     jne mainloop
 
