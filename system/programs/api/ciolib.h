@@ -4,6 +4,8 @@ Developed by Alexander Kitaev
 COPYLEFT Alexander Kitaev
 */
 
-void print(const char* str);
+void print(char* str);
 
 char* input();
+
+char* password_input();
