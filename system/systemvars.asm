@@ -2,19 +2,21 @@
 ;Developed by Alexander Kitaev
 ;COPYLEFT Alexander Kitaev
 
-ORG [0x0000D000]
+ORG [0x0000CFFE] ; Two bytes before 0xD000
+
+jmp end ; we don't want to execute this file
 
 ;Screen position
 xPos db 0
 yPos db 0
 
 ;Location of kbdHandler function
-kbdHandlerLoc db 0
-currKeyPushed db 0
+kbdHandlerLoc dd 0
 
 ;Location of mouseHandler function
-mouseHandlerLoc db 0
-currMouseXPos db 0
-currMouseYPos db 0
+mouseHandlerLoc dd 0
 
 ;Other vars go here
+
+end:
+; EOF
