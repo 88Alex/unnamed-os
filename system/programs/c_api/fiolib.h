@@ -4,16 +4,21 @@ Developed by Alexander Kitaev
 COPYLEFT Alexander Kitaev
 */
 
-void createFile(const char* name);
+#ifndef LITHIUM_OS_FIOLIB_H_INCLUDED
+#define LITHIUM_OS_FIOLIB_H_INCLUDED
 
-void mkdir(const char* name);
+void createFile(char* name);
 
-char* getFileContents(const char* name);
+void mkdir(char* name);
 
-void editFile(const char* name, const char* contents);
+char* getFileContents(char* name);
 
-void appendToFile(const char* name, const char* contents);
+void editFile(char* name, char* contents);
 
-void deleteFile(const char* name);
+void appendToFile(char* name, char* contents);
 
-bool fileExists(const char* name);
+void deleteFile(char* name);
+
+bool fileExists(char* name);
+
+#endif // #ifndef LITHIUM_OS_FIOLIB_H_INCLUDED

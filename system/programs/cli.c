@@ -4,9 +4,7 @@ Developed by Alexander Kitaev
 COPYLEFT Alexander Kitaev
 */
 
-#include "api/ciolib.h"
-#include "api/mtlib.h"
-#include "api/fiolib.h"
+#include "c_api/lithium.h"
 
 char[] helpMessage1 = "exit- exits program\nhelp- displays help\n";
 char[] helpMessage2 = "version- displays version\ninfo- displays system information\n";

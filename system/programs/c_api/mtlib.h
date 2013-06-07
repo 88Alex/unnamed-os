@@ -4,7 +4,8 @@ Developed by Alexander Kitaev
 COPYLEFT Alexander Kitaev
 */
 
-//NOTE: The system takes care of creating processes.
+#ifndef LITHIUM_OS_MTLIB_H_INCLUDED
+#define LITHIUM_OS_MTLIB_H_INCLUDED
 
 int getFreeMemory();
 
@@ -13,3 +14,5 @@ void addProc(int location);
 void endProc();
 
 void wait();
+
+#endif // #ifndef LITHIUM_OS_MTLIB_H_INCLUDED
