@@ -18,7 +18,7 @@ write_string_loop:
     jmp write_string_loop
 write_char:
     ; the character is in al
-    cmp al,10
+    cmp al,13
     je write_newline
     cmp al,9
     je write_tab
