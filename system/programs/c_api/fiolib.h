@@ -7,18 +7,18 @@ COPYLEFT Alexander Kitaev
 #ifndef LITHIUM_OS_FIOLIB_H_INCLUDED
 #define LITHIUM_OS_FIOLIB_H_INCLUDED
 
-void createFile(char* name);
+int createFile(char* name);
 
-void mkdir(char* name);
+int mkdir(char* name);
 
 char* getFileContents(char* name);
 
-void editFile(char* name, char* contents);
+int editFile(char* name, char* contents);
 
-void appendToFile(char* name, char* contents);
+int appendToFile(char* name, char* contents);
 
-void deleteFile(char* name);
+int deleteFile(char* name);
 
-bool fileExists(char* name);
+int fileExists(char* name);
 
 #endif // #ifndef LITHIUM_OS_FIOLIB_H_INCLUDED
