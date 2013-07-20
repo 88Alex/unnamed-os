@@ -38,4 +38,4 @@ end_proc:
 ;Data declarations
 ActiveProcCount db 1; the CLI
 NextProc db 0x0000B000
-NextFreeProc db 0x0000B040; each block is 32 bytes- 16 for the PID and 16 for the IP
+NextFreeProc db 0x0000B020; each block is 32 bits- 16 for the PID and 16 for the IP
